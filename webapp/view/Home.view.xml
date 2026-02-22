@@ -1,0 +1,99 @@
+<mvc:View
+    controllerName="crm.crmbatchtest.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+
+    <Page title="CRM SMART CONTROL DASHBOARD">
+
+        <VBox class="sapUiContentPadding" width="100%">
+
+            <!-- ================= BATCH SELECTOR ================= -->
+            <HBox justifyContent="Start" alignItems="Center" class="sapUiSmallMarginBottom">
+                <Text text="Select Root Batch:" class="sapUiSmallMarginEnd"/>
+                <Select
+                    width="200px"
+                    selectedKey="{/selectedBatch}"
+                    items="{/batchList}"
+                    change=".onBatchChange">
+
+                    <items>
+                        <core:Item key="{id}" text="{id}"/>
+                    </items>
+
+                </Select>
+            </HBox>
+
+            <!-- ================= ROOT BATCH ================= -->
+            <Panel headerText="ROOT BATCH TRACKER" class="sapUiSmallMarginBottom">
+
+                <HBox justifyContent="SpaceBetween" alignItems="Center">
+                    <Text text="{/current/rootInfo}"/>
+                    <Link text="{/current/rootStatus}"
+                          press=".onRootPress"/>
+                </HBox>
+
+            </Panel>
+
+            <!-- ================= GRID ================= -->
+            <l:Grid defaultSpan="L6 M12 S12" containerQuery="true" hSpacing="1" vSpacing="1" class="sapUiSmallMarginTop">
+
+
+                <!-- WIP STATUS -->
+                <Panel headerText="WIP STATUS">
+                    <VBox>
+                        <Text text="Pickling: {/current/wip/pickling}"/>
+                        <Text text="Oiling: {/current/wip/oiling}"/>
+                        <Text text="Rewinding: {/current/wip/rewinding}"/>
+                        <Link text="Booking >2h: {/current/wip/delay}"
+                              press=".onSectionPress">
+                            <customData>
+                                <core:CustomData key="type" value="DELAY"/>
+                            </customData>
+                        </Link>
+                    </VBox>
+                </Panel>
+
+                <!-- SALES ORDER STATUS -->
+                <Panel headerText="SALES ORDER STATUS">
+                    <VBox>
+                        <Text text="SO Reserved: {/current/so/reserved} MT"/>
+                        <Text text="Open SO: {/current/so/open} MT"/>
+                        <Text text="Shortfall: {/current/so/shortfall} MT 🔴"/>
+                    </VBox>
+                </Panel>
+
+                <!-- MTS -->
+                <Panel headerText="MTS AVAILABLE">
+                    <VBox>
+                        <Text text="Unrestricted FG: {/current/mts/unrestricted} MT"/>
+                        <Text text="Saleable Semi-FG: {/current/mts/semi} MT"/>
+                        <Text text="Net MTS: {/current/mts/net} MT"/>
+                    </VBox>
+                </Panel>
+
+                <!-- AGING -->
+                <Panel headerText="AGING RISK">
+                    <VBox>
+                        <Text text="Fresh: {/current/aging/fresh} MT"/>
+                        <Text text="Risk >60d: {/current/aging/risk} MT"/>
+                        <Text text="Critical >90d: {/current/aging/critical} MT"/>
+                    </VBox>
+                </Panel>
+
+                <!-- STOCK ACCURACY -->
+                <Panel headerText="STOCK ACCURACY">
+                    <VBox>
+                        <Text text="Physical: {/current/accuracy/physical} MT"/>
+                        <Text text="SAP: {/current/accuracy/sap} MT"/>
+                        <Text text="Variance: {/current/accuracy/variance} MT 🔴"/>
+                        <Text text="Accuracy: {/current/accuracy/percent}%"/>
+                    </VBox>
+                </Panel>
+
+            </l:Grid>
+
+        </VBox>
+    </Page>
+</mvc:View>

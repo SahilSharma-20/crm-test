@@ -1,0 +1,28 @@
+.kpiStrip {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.kpiCard {
+    padding: 1rem 2rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.kpiCard:hover {
+    background: #f8f9fa;
+}
+.sapUiLayoutGrid > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.sapUiLayoutGrid .sapMPanel {
+    height: 100%;
+}
+
+#crmProcessTree {
+    overflow-x: auto;
+}

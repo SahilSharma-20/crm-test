@@ -1,0 +1,52 @@
+{
+  "dashboard": {
+    "soReserved": 85,
+    "openSO": 92,
+    "shortfall": 7,
+    "mtsAvailable": 65,
+    "wipTotal": 245,
+    "delayCount": 7,
+    "stockAccuracy": 94.2,
+    "physicalStock": 260,
+    "sapStock": 245,
+    "agingRisk": 18
+  },
+  "stages": [
+    { "stage": "Pickling", "qty": 90 },
+    { "stage": "Oiling", "qty": 120 },
+    { "stage": "Rewinding", "qty": 35 },
+    { "stage": "Galvanizing", "qty": 40 }
+  ],
+  "aging": [
+    { "bucket": "Fresh", "qty": 210 },
+    { "bucket": "Risk", "qty": 42 },
+    { "bucket": "Critical", "qty": 18 }
+  ],
+  "stockTypes": [
+    { "type": "Unrestricted", "qty": 180 },
+    { "type": "Quality", "qty": 25 },
+    { "type": "Blocked", "qty": 12 }
+  ],
+  "soMts": [
+    { "category": "SO Reserved", "qty": 85 },
+    { "category": "MTS Available", "qty": 65 }
+  ],
+  "batches": [
+    {
+      "id": "1",
+      "rootBatch": "H12345",
+      "stage": "OILING",
+      "qty": 17,
+      "agingBucket": "RISK",
+      "delayMinutes": 130
+    },
+    {
+      "id": "2",
+      "rootBatch": "H67890",
+      "stage": "PICKLING",
+      "qty": 20,
+      "agingBucket": "FRESH",
+      "delayMinutes": 45
+    }
+  ]
+}
