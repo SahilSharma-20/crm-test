@@ -1,0 +1,34 @@
+<mvc:View
+    controllerName="crm.crmbatchtest.controller.BatchList"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Batch List"
+          showNavButton="true"
+          navButtonPress=".onNavBack">
+
+        <Table items="{/filtered}">
+            <columns>
+                <Column><Text text="Batch"/></Column>
+                <Column><Text text="Stage"/></Column>
+                <Column><Text text="Qty"/></Column>
+                <Column><Text text="Aging"/></Column>
+                <Column><Text text="Delay"/></Column>
+            </columns>
+
+            <items>
+                <ColumnListItem type="Navigation"
+                                press=".onSelect">
+                    <cells>
+                        <Text text="{batch}"/>
+                        <Text text="{stage}"/>
+                        <Text text="{qty}"/>
+                        <Text text="{aging}"/>
+                        <Text text="{delay} hrs"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+    </Page>
+</mvc:View>
