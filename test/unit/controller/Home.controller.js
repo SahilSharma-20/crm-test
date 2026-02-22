@@ -1,0 +1,2 @@
+sap.ui.define(["crm/crmbatchtest/controller/Home.controller"],function(t){"use strict";QUnit.module("Home Controller");QUnit.test("I should test the Home controller",function(o){var e=new t;e.onInit();o.ok(e)})});
+//# sourceMappingURL=Home.controller.js.map

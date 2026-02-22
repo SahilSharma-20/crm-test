@@ -1,0 +1,122 @@
+{
+	"_version": "1.81.0",
+	"sap.app": {
+		"id": "crm.crmbatchtest",
+		"type": "application",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				""
+			]
+		},
+		"applicationVersion": {
+			"version": "0.0.1"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "@sap/generator-fiori:basic",
+			"version": "1.20.2",
+			"toolsId": "29afd2d2-76d2-424c-963d-904cb18f6f2a"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": true,
+		"dependencies": {
+			"minUI5Version": "1.145.0",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.f": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "crm.crmbatchtest.i18n.i18n",
+					"supportedLocales": [
+						""
+					]
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "crm.crmbatchtest.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes": [
+				{
+					"name": "home",
+					"pattern": "",
+					"target": "home"
+				},
+				{
+					"name": "batchList",
+					"pattern": "batchList/{type}",
+					"target": "batchList"
+				},
+				{
+					"name": "batchDetail",
+					"pattern": "batchDetail/{id}",
+					"target": "batchDetail"
+				}
+			],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewType": "XML"
+				},
+				"batchList": {
+					"viewName": "BatchList",
+					"viewType": "XML"
+				},
+				"batchDetail": {
+					"viewName": "BatchDetail",
+					"viewType": "XML"
+				}
+			}
+		},
+		"rootView": {
+			"viewName": "crm.crmbatchtest.view.App",
+			"type": "XML",
+			"id": "App",
+			"async": true
+		},
+		"flexBundle": false
+	}
+}
